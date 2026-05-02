@@ -1,6 +1,6 @@
 ---
 name: memory-flow
-description: "Structured focus sessions with priority loops, structured handoffs, and #decision promotion. Use when user initiates a focus session with BEGIN, ends one with END, or adds a reminder with REMIND ME."
+description: "Structured focus FOCUSs with priority loops, structured handoffs, and #decision promotion. Use when user initiates a focus FOCUS with BEGIN, ends one with END, or adds a reminder with R:."
 license: MIT
 metadata:
   author: Reb-Elle-Art (base); Todd (synthesis for mf-st-thad-v1)
@@ -8,19 +8,17 @@ metadata:
   src: "mf-st-thad-v1 synthesis"
   triggers:
     - BEGIN
-    - BEGIN quick
     - END
-    - REMIND ME:
-    - REMIND ME (HIGH):
-    - REMIND ME (MED):
-    - REMIND ME (BACKLOG):
-  category: memory/session
+    - R:
+    - R!:
+    - RB:
+  category: memory/FOCUS
   requires:
     - filesystem
     - memory_search
 ---
 
-# MEMORY-FLOW — Unified Focus Sessions with Memory Logging
+# MEMORY-FLOW — Unified Focus FOCUSs with Memory Logging
 
 **Part of memory-focus unified memory framework (mf-st-thad-v1)**
 
@@ -28,12 +26,11 @@ metadata:
 
 | Trigger | Action |
 |---------|--------|
-| `BEGIN` | Start a standard focus session |
-| `BEGIN quick` | Start a short session, abbreviated handoff |
-| `END` | End session, write handoff, promote decisions |
-| `REMIND ME: X` | Add open loop (MED priority) |
-| `REMIND ME (HIGH): X` | Add high priority open loop |
-| `REMIND ME (BACKLOG): X` | Add backlog item |
+| `BEGIN` | Start a standard focus FOCUS |
+| `END` | End FOCUS, write handoff, promote decisions |
+| `R: X` | Add open loop (MED priority) |
+| `R!: X` | Add high priority open loop |
+| `RB: X` | Add backlog item |
 | `1% better` | Manual trigger for improvement prompt |
 
 ---
@@ -42,11 +39,11 @@ metadata:
 
 ```
 memory/
-├── daily/                    # Session handoffs (YYYY-MM-DD.md)
+├── daily/                    # FOCUS handoffs (YYYY-MM-DD.md)
 ├── loops.md                  # Open loops (warn at 10, no hard limit)
 ├── backups/                  # GitHub backup copies
-├── .session-active           # Marker: session in progress
-├── .session-count           # Session counter (for 1% Better)
+├── .focus-active           # Marker: FOCUS in progress
+├── .focus-count           # FOCUS counter (for 1% Better)
 ├── .timezone               # User's timezone
 └── .github-backup-auto     # (only if auto backup enabled)
 
@@ -62,13 +59,13 @@ references/
 
 At each BEGIN, load only what's needed. Extra files waste tokens and slow startup.
 
-| Session Type | Duration | Files Loaded |
+| FOCUS Type | Duration | Files Loaded |
 |-------------|----------|--------------|
 | Short | <1 hr | loops.md + timezone check |
 | Standard | 1-2 hr | loops.md + MEMORY.md + last 3 dailies |
 | Long | 2+ hr | Everything (full load) |
 
-Target: < 5KB per typical session.
+Target: < 5KB per typical FOCUS.
 
 ---
 
@@ -90,23 +87,23 @@ Check if `memory/daily/YYYY-MM-DD.md` exists. If not, create:
 ---
 type: focus-log
 date: YYYY-MM-DD
-focusSessions: []
+focusFOCUSs: []
 ---
 ```
 
-### Step 2: Check for Unclosed Sessions
+### Step 2: Check for Unclosed FOCUSs
 
 **Two-pronged check:**
 
-a) Marker check: Does `memory/.session-active` exist?
-   → If yes: "There's an unclosed session marker. Did you forget to END?"
+a) Marker check: Does `memory/.focus-active` exist?
+   → If yes: "There's an unclosed FOCUS marker. Did you forget to END?"
 
 b) Time check: Parse today's daily for FOCUS starts without matching END (>4 hours old)
-   → If found: "You started a session X hours ago without closing it. Want to END first?"
+   → If found: "You started a FOCUS X hours ago without closing it. Want to END first?"
 
 Always warn. Let the user decide.
 
-If no unclosed session: write `memory/.session-active` with timestamp.
+If no unclosed FOCUS: write `memory/.focus-active` with timestamp.
 
 ### Step 3: Check Timezone
 
@@ -133,12 +130,12 @@ Read `MEMORY.md` for key decisions and context.
 Find 3 most recent daily files. Read in reverse chronological order.
 Extract: active projects, open questions, files being worked on.
 
-### Step 7: Load Session Preferences (Best Practices)
+### Step 7: Load FOCUS Preferences (Best Practices)
 
 Read `references/focus-best-practices.md` if it exists.
 Apply any custom tags, file conventions, or preferences.
 
-### Step 8: Acknowledge Session Start
+### Step 8: Acknowledge FOCUS Start
 
 Report to user:
 - Timestamp
@@ -149,7 +146,7 @@ Report to user:
 
 ---
 
-## During Session
+## During FOCUS
 
 - Track active context: project name, files being worked on
 - Tag decisions with `#decision` as they happen
@@ -171,7 +168,7 @@ Report to user:
 
 ### Step 1: Verify Incomplete Work
 
-Check `loops.md` for `#in-session` items:
+Check `loops.md` for `#in-FOCUS` items:
 - If found: move each to today's handoff as "Incomplete"
 - If none: proceed
 
@@ -184,7 +181,7 @@ Process user's response.
 
 ### Step 3: Detect Decisions
 
-Scan session notes for `#decision` tags:
+Scan FOCUS notes for `#decision` tags:
 > "Found N decisions. Promote to MEMORY.md?"
 
 If yes: add each to `MEMORY.md` with date and source file reference.
@@ -210,7 +207,7 @@ Files Modified:
 - /full/path/file2
 
 Incomplete (moved to loops):
-- Item that didn't finish #in-session
+- Item that didn't finish #in-FOCUS
 
 Next Steps:
 - What needs doing next
@@ -222,23 +219,23 @@ END — HH:MM:SS
 
 Parse "Files Modified":
 - For each file, detect if it belongs to `projects/[name]/`
-- If project has `session-links.md`: append this session's entry
+- If project has `FOCUS-links.md`: append this FOCUS's entry
 - If not in a project: note in `MEMORY.md` under "Infrastructure Changes"
 
 ### Step 6: Cleanup
 
-Delete `memory/.session-active` marker file.
+Delete `memory/.focus-active` marker file.
 
 **GitHub backup (if auto-enabled):**
 Run `scripts/github-backup.sh` automatically.
 
 ### Step 7: 1% Better Check
 
-Increment `memory/.session-count`.
+Increment `memory/.focus-count`.
 If count % 5 == 0:
-> "1% Better: What's one thing you learned, improved, or want to do differently next session?"
+> "1% Better: What's one thing you learned, improved, or want to do differently next FOCUS?"
 
-Save response to today's daily under "Session Improvements."
+Save response to today's daily under "FOCUS Improvements."
 Reset or continue counter.
 
 ### Step 8: Confirm
@@ -261,9 +258,9 @@ Tell the user the handoff file path.
 
 | Syntax | Tag | Meaning |
 |--------|-----|---------|
-| `REMIND ME: thing` | MED | Regular open loop (default) |
-| `REMIND ME (HIGH): thing` | #priority-high | Do today |
-| `REMIND ME (BACKLOG): thing` | #backlog | Someday / when available |
+| `R: thing` | MED | Regular open loop (default) |
+| `R!: thing` | #priority-high | Do today |
+| `RB: thing` | #backlog | Someday / when available |
 
 **Soft limit:** Warn at 10 items. No hard enforcement.
 
@@ -273,7 +270,7 @@ Tell the user the handoff file path.
 
 ## Decision Tagging (Decision 2: #decision)
 
-Tag decisions with `#decision` inline during session:
+Tag decisions with `#decision` inline during FOCUS:
 
 ```markdown
 - We decided to use the 3-tier hybrid system #decision
@@ -283,12 +280,11 @@ At END, scan for `#decision` tags. Prompt to promote to `MEMORY.md`.
 
 ---
 
-## Session Templates (Decision 11)
+## FOCUS Templates (Decision 11)
 
 | Template | Command | Behavior |
 |----------|---------|----------|
 | Standard | `BEGIN` | Full BEGIN/END flow |
-| Quick | `BEGIN quick` | Skip "what are we working on", abbreviated handoff |
 
 Custom templates (from wizard decision 10) can be added to `references/focus-best-practices.md`.
 
@@ -305,9 +301,9 @@ Configure in wizard: "auto (Stuart style)" vs "opt-in (MEMORY-FLOW style)"
 
 ## Context Injection Summary
 
-Target: < 5KB per typical session.
+Target: < 5KB per typical FOCUS.
 
-| Session Type | Files Loaded |
+| FOCUS Type | Files Loaded |
 |-------------|--------------|
 | Short (<1hr) | loops.md + timezone check |
 | Standard (1-2hr) | loops.md + MEMORY.md + last 3 dailies |
@@ -321,9 +317,9 @@ Target: < 5KB per typical session.
 |---------|----------|
 | "No daily log found" | Say BEGIN — creates today's log automatically |
 | "Loops not loading" | Check `memory/loops.md` exists or is empty |
-| Session marker stuck | Delete `memory/.session-active` manually |
+| FOCUS marker stuck | Delete `memory/.focus-active` manually |
 | Stale loops piling up | At BEGIN, prompt to keep/mark complete/archive |
-| 1% Better not triggering | Check `memory/.session-count` exists |
+| 1% Better not triggering | Check `memory/.focus-count` exists |
 | No timezone set | Ask user at first BEGIN, write to `memory/.timezone` |
 | Loops at 10+ | Warn but don't enforce — user can override |
 

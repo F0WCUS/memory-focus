@@ -11,7 +11,7 @@ mkdir -p "$MEMORY_DIR/backups"
 
 # Create placeholder files
 touch "$MEMORY_DIR/loops.md"
-touch "$MEMORY_DIR/.session-active"  # Will be deleted by agent on first END
+touch "$MEMORY_DIR/.focus-active"  # Will be deleted by agent on first END
 touch "$MEMORY_DIR/.timezone"       # Agent will ask and fill this in
 
 # Create a starter MEMORY.md if it doesn't exist
@@ -43,6 +43,6 @@ echo "  $MEMORY_DIR/"
 echo "  $MEMORY_DIR/daily/"
 echo "  $MEMORY_DIR/backups/"
 echo "  $MEMORY_DIR/loops.md"
-echo "  $MEMORY_DIR/.session-active"
+echo "  $MEMORY_DIR/.focus-active"
 echo "  $MEMORY_DIR/.timezone"
 [ -f "MEMORY.md" ] && echo "  MEMORY.md"

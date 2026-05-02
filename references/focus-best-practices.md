@@ -9,7 +9,7 @@
 | Tag | Meaning |
 |-----|---------|
 | #open-loop | Something to revisit |
-| #in-session | Started but won't finish this session |
+| #in-FOCUS | Started but won't finish this FOCUS |
 | #decision | A decision made (promote to MEMORY.md) |
 
 *[Additional tags from wizard question 1]*
@@ -36,7 +36,7 @@ git — version control
 
 ---
 
-## 4. Session Preference
+## 4. FOCUS Preference
 
 Default: standard (full flow) / quick (abbreviated)
 
@@ -49,7 +49,7 @@ Default: standard (full flow) / quick (abbreviated)
 | Location | Path |
 |----------|------|
 | Project files | projects/[name]/ |
-| Session logs | memory/daily/ |
+| FOCUS logs | memory/daily/ |
 | Daily notes | memory/daily/notes/ |
 
 *[Custom conventions from wizard question 5]*
@@ -70,7 +70,7 @@ Default: standard (full flow) / quick (abbreviated)
 
 **Enabled:** yes / no
 
-**Interval:** Every N sessions (default: 5)
+**Interval:** Every N FOCUSs (default: 5)
 
 *[From wizard question 7]*
 
@@ -82,7 +82,7 @@ Default: standard (full flow) / quick (abbreviated)
 
 *[From wizard question 8]*
 
-If enabled, the agent will optionally acknowledge meaningful moments during session.
+If enabled, the agent will optionally acknowledge meaningful moments during FOCUS.
 
 ---
 
@@ -96,7 +96,7 @@ If enabled, the agent will optionally check in on emotional state if tone/topic 
 
 ---
 
-## 10. Custom Session Templates
+## 10. Custom FOCUS Templates
 
 *[From wizard question 10 — optional]*
 

@@ -1,6 +1,6 @@
 # MEMORY.md — Long-Term Memory
 
-<!-- Decisions promoted from sessions are logged here with date and source. -->
+<!-- Decisions promoted from FOCUSs are logged here with date and source. -->
 
 ## Key Decisions
 
@@ -22,8 +22,8 @@
 
 | Tag | Meaning |
 |-----|---------|
-| #decision | A decision made (promoted from session) |
+| #decision | A decision made (promoted from FOCUS) |
 | #open-loop | An open item to revisit |
-| #in-session | Started but not finished in current session |
+| #in-FOCUS | Started but not finished in current FOCUS |
 | #priority-high | High priority (do today) |
 | #backlog | Someday / when available |

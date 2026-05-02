@@ -1,19 +1,16 @@
 ---
 name: memory-focus
-description: "Unified memory framework for HeyRon agents: focus sessions with priority loops, structured handoffs, long-term memory cycling via sync/study, continuous improvement via 1% Better, and emotional awareness via Witness Protocol. Use when user says BEGIN, END, REMIND ME, sync, study, or wants to work with focus and memory."
+description: "Unified memory framework for HeyRon agents: FOCUS sessions with priority loops, structured handoffs, long-term memory cycling via sync/study, continuous improvement via 1% Better, and emotional awareness via Witness Protocol. Use when user says BEGIN, END, R:, sync, study, or wants to work with focus and memory."
 license: MIT
 metadata:
-  author: "Synthesized from MEMORY-FLOW (Reb-Elle-Art) + Stuart (F0WCUS) + Thad-FoWCuS — Todd (OpenClaw)"
+  author: "Synthesized from MEMORY-FLOW (Reb-Elle-Art) + Stuart + Thad-FoWCuS — Todd (OpenClaw)"
   version: "1.0"
   synthesis: "mf-st-thad-v1"
   triggers:
     - BEGIN
-    - BEGIN quick
     - END
-    - REMIND ME
-    - REMIND ME (HIGH)
-    - REMIND ME (MED)
-    - REMIND ME (BACKLOG)
+    - R:
+    - RB:
     - sync
     - sync now
     - study
@@ -25,11 +22,11 @@ metadata:
     - memory_search
 ---
 
-# F0WCUS — Unified Memory Framework for HeyRon Agents
+# memory-focus — Unified Memory Framework for HeyRon Agents
 
 **Focus. Memory. Continuous Improvement.**
 
-F0WCUS is a complete, layered memory system for HeyRon/OpenClaw agents. It combines structured focus sessions, persistent long-term memory cycling, and a lightweight continuous-improvement loop into one seamless experience.
+memory-focus is a complete, layered memory system for HeyRon/OpenClaw agents. It combines structured focus FOCUS sessions persistent long-term memory cycling, and a lightweight continuous-improvement loop into one seamless experience.
 
 Built from three proven systems — MEMORY-FLOW, Stuart, and Thad-FoWCuS — synthesized through the mf-st-thad-v1 process.
 
@@ -37,13 +34,13 @@ Built from three proven systems — MEMORY-FLOW, Stuart, and Thad-FoWCuS — syn
 
 ## The Three Layers
 
-F0WCUS operates on three memory layers that work together:
+memory-focus operates on three memory layers that work together:
 
 | Layer | Skill | Handles |
 |-------|-------|---------|
-| **Session** | memory-flow | Real-time context: what we're working on, open loops, session handoffs |
-| **Long-term** | sync / study | Persistent memory across sessions: saves, loads, GitHub backup |
-| **Growth** | Thad patterns | 1% Better improvements, Witness Protocol, Emotion Check |
+| **Session** | memory-flow | Real-time context: what we're working on, open loops, FOCUS handoffs |
+| **Long-term** | sync / study | Persistent memory across FOCUS sessions saves, loads, GitHub backup |
+| **Growth** | Thad patterns | 1% Better (on by default — opt out in setup), Witness Protocol, Emotion Check |
 
 The result: **minimal context loss, persistent memory between logins, seamless session continuity.**
 
@@ -63,11 +60,10 @@ The 10-question setup wizard runs automatically. Takes ~5 minutes.
 
 ```
 BEGIN              # Start a standard focus session
-BEGIN quick        # Short session (~15 min)
 
 [work — tag decisions with #decision as you go]
 
-END                # End session, write handoff, promote decisions, GitHub backup
+END                # End FOCUS, write handoff, promote decisions, GitHub backup
 ```
 
 ### Long-Term Memory
@@ -85,11 +81,10 @@ mega sync          # Full system health check
 | Trigger | Skill | Action |
 |---------|-------|--------|
 | `BEGIN` | memory-flow | Start standard session: load loops, MEMORY.md, last 3 dailies |
-| `BEGIN quick` | memory-flow | Short session: abbreviated handoff, skip "what are we working on" |
-| `END` | memory-flow | End session: handoff, decision promotion, GitHub backup |
-| `REMIND ME: thing` | memory-flow | Add open loop (MED priority) |
-| `REMIND ME (HIGH): thing` | memory-flow | Add high-priority loop |
-| `REMIND ME (BACKLOG): thing` | memory-flow | Add someday/backlog loop |
+| `END` | memory-flow | End FOCUS: handoff, decision promotion, GitHub backup |
+| `R: thing` | memory-flow | Add open loop (MED priority) |
+| `R!: thing` | memory-flow | Add high-priority loop |
+| `RB: thing` | memory-flow | Add someday/backlog loop |
 | `sync` | sync | Save memory files + push to GitHub |
 | `sync now` | sync | Force save and push immediately |
 | `study` | study | Load all memories, catch up |
@@ -105,8 +100,8 @@ memory/
 ├── daily/                    # Session handoffs (YYYY-MM-DD.md)
 ├── loops.md                 # Open loop registry
 ├── backups/                  # GitHub backup copies
-├── .session-active          # Marker: session in progress
-├── .session-count           # Session counter (for 1% Better)
+├── .focus-active          # Marker: session in progress
+├── .focus-count           # Session counter (for 1% Better)
 └── .timezone               # User's timezone
 
 MEMORY.md                    # Long-term memory: key decisions, context
@@ -142,8 +137,8 @@ END
   → Write structured handoff to memory/daily/
   → Link files to project spokes
   → GitHub backup (auto by default)
-  → 1% Better prompt (every 5 sessions)
-  → Delete .session-active marker
+  → 1% Better prompt (every 5 FOCUS sessions)
+  → Delete .focus-active marker
 
 sync
   → Save memory files to long-term storage
@@ -161,13 +156,13 @@ study
 
 ## Priority Loops
 
-F0WCUS uses a **3-tier priority system** (customizable in wizard):
+memory-focus uses a **3-tier priority system** (customizable in wizard):
 
 | Syntax | Tag | Meaning |
 |--------|-----|---------|
-| `REMIND ME (HIGH): thing` | #priority-high | Do today |
-| `REMIND ME: thing` | MED (default) | Do this week |
-| `REMIND ME (BACKLOG): thing` | #backlog | Someday / when available |
+| `R!: thing` | #priority-high | Do today |
+| `R: thing` | MED (default) | Do this week |
+| `RB: thing` | #backlog | Someday / when available |
 
 **Soft limit:** Warn at 10 open loops. No hard enforcement — you decide when to prune.
 
@@ -177,7 +172,7 @@ F0WCUS uses a **3-tier priority system** (customizable in wizard):
 
 ## Decision Workflow
 
-Tag decisions with `#decision` during sessions:
+Tag decisions with `#decision` during FOCUS sessions
 
 ```
 We decided to use the 3-tier system #decision
@@ -218,7 +213,7 @@ Both are lightweight, optional awareness prompts. Not intrusive. Fully under you
 
 ## GitHub Backup
 
-**Auto mode (default):** Every `END` runs `scripts/github-backup.sh` automatically.
+**Auto by default — every END pushes a backup to GitHub.** Every `END` runs `scripts/github-backup.sh` automatically.
 **Opt-in mode:** Create `memory/.github-backup-auto` to disable auto; backup only if marker exists.
 
 Set your preference in the wizard.
@@ -230,7 +225,6 @@ Set your preference in the wizard.
 | Command | Duration | Behavior |
 |---------|----------|----------|
 | `BEGIN` | ~1 hr | Full flow: context load + full handoff |
-| `BEGIN quick` | ~15 min | Skip "what are we focusing on", abbreviated handoff |
 
 Custom templates can be configured in the wizard.
 
@@ -250,7 +244,7 @@ Sessions load only what's needed. Target: **< 5KB per typical session.**
 
 ## OpenClaw HEARTBEAT
 
-F0WCUS includes a heartbeat configuration for automatic background tasks:
+memory-focus includes a heartbeat configuration for automatic background tasks:
 
 - Session start reminders
 - Memory rules (write after important conversations, check before answering)
@@ -268,9 +262,9 @@ See `HEARTBEAT.md` in this repo for full configuration.
 |---------|----------|
 | "No daily log found" | Say `BEGIN` — creates today's log automatically |
 | "Loops not loading" | Check `memory/loops.md` exists |
-| Session marker stuck | Delete `memory/.session-active` |
+| FOCUS marker stuck | Delete `memory/.focus-active` |
 | Stale loops piling up | At BEGIN, prompt to keep/mark complete/archive |
-| 1% Better not triggering | Check `memory/.session-count` exists; fires every 5 sessions |
+| 1% Better not triggering | Check `memory/.focus-count` exists; fires every 5 FOCUS sessions |
 | No timezone set | Ask at first BEGIN, written to `memory/.timezone` |
 | Loops at 10+ | Warn but don't enforce — you override |
 | `sync` fails | Check GitHub remote; retry with `sync now` |
@@ -278,22 +272,9 @@ See `HEARTBEAT.md` in this repo for full configuration.
 
 ---
 
-## Recipes
-
-Three configured variants — pick the one that fits your style:
-
-| Recipe | Who it's for |
-|--------|-------------|
-| `cookbook/minimal/` | Casual users, single-project, minimal overhead |
-| `cookbook/standard/` | **Recommended.** Full framework, auto GitHub backup |
-| `cookbook/complete/` | Power users, multi-project, all hooks enabled |
-
----
-
-## Project Structure
 
 ```
-F0WCUS/
+memory-focus/
 ├── SKILL.md                     # This file
 ├── HEARTBEAT.md                # OpenClaw heartbeat config
 ├── README.md                    # Entry point
@@ -305,7 +286,7 @@ F0WCUS/
 │   ├── study/SKILL.md          # Load memories, catch up
 │   └── mega-sync/SKILL.md     # Full system health check
 ├── setup/
-│   └── MEMORY-FLOWCUS-Setup.md  # 10-question wizard
+│   └── memory-focus-setup.md.md  # 10-question wizard
 ├── references/
 │   └── focus-best-practices.md  # Your preferences
 ├── templates/
@@ -336,16 +317,16 @@ F0WCUS/
 
 ## Synthesis Notes
 
-F0WCUS was built through the **mf-st-thad-v1 synthesis process**, combining three source repos:
+memory-focus was built through the **mf-st-thad-v1 synthesis process**, combining three source repos:
 
 - **MEMORY-FLOW** (Reb-Elle-Art) — Session system with priority loops, structured handoffs, decision promotion, setup wizard
-- **Stuart** (F0WCUS) — Long-term memory cycling: sync/study/mega-sync with GitHub backup and tag auto-suggestion
+- **Stuart** — Long-term memory cycling: sync/study/mega-sync with GitHub backup and tag auto-suggestion
 - **Thad-FoWCuS** — 1% Better rule, Witness Protocol, Emotion Check, HEARTBEAT configuration, agent personality
 
 13 human decisions were made at the decision gate (Step 4 of the synthesis process), applied to produce this unified framework.
 
 ---
 
-*F0WCUS — mf-st-thad-v1 | Built: 2026-05-02*
+*memory-focus — mf-st-thad-v1 | Built: 2026-05-02*
 *Synthesized from: MEMORY-FLOW + Stuart + Thad-FoWCuS*
 *Decision log: available on request*

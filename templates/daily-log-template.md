@@ -3,7 +3,7 @@
 ---
 type: focus-log
 date: YYYY-MM-DD
-focusSessions: []
+focusFOCUSs: []
 ---
 
 ## FOCUS — HH:MM:SS
@@ -22,12 +22,12 @@ Files Modified:
 - /full/path/file2
 
 Incomplete (moved to loops):
-- Item that didn't finish #in-session
+- Item that didn't finish #in-FOCUS
 
 Next Steps:
 - What needs doing next
 
-Session Improvements:
+FOCUS Improvements:
 - 1% Better: [if triggered]
 
 END — HH:MM:SS

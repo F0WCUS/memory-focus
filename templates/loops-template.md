@@ -13,9 +13,9 @@
 
 | Syntax | Tag | Meaning |
 |--------|-----|---------|
-| `REMIND ME: thing` | default (MED) | Regular open loop |
-| `REMIND ME (HIGH): thing` | #priority-high | Do today |
-| `REMIND ME (BACKLOG): thing` | #backlog | Someday / when available |
+| `R: thing` | default (MED) | Regular open loop |
+| `R!: thing` | #priority-high | Do today |
+| `RB: thing` | #backlog | Someday / when available |
 
 ## Active Loops
 
