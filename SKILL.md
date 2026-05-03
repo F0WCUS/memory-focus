@@ -3,9 +3,8 @@ name: memory-focus
 description: "Unified memory framework for HeyRon agents: FOCUS sessions with priority loops, structured handoffs, long-term memory cycling via sync/study, continuous improvement via 1% Better, and emotional awareness via Witness Protocol. Use when user says BEGIN, END, R:, sync, study, or wants to work with focus and memory."
 license: MIT
 metadata:
-  author: "Synthesized from MEMORY-FLOW (Reb-Elle-Art) + Stuart + Thad-FoWCuS — Todd (OpenClaw)"
+  author: "Synthesized from Zoe + Stuart + Thad (and humans)"
   version: "1.0"
-  synthesis: "mf-st-thad-v1"
   triggers:
     - BEGIN
     - END
