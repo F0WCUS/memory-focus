@@ -3,7 +3,7 @@
 ---
 type: focus-log
 date: YYYY-MM-DD
-focusFOCUSs: []
+focuses: []
 ---
 
 ## FOCUS — HH:MM:SS
