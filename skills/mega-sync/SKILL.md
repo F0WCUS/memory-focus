@@ -2,7 +2,7 @@
 name: mega-sync
 description: Complete system health check - GitHub sync, memory verification, OpenClaw status. Use when you need a comprehensive status check - says "mega sync".
 metadata:
-  author: Jeem & Stuart
+  author: F0WCUS
   version: "1.3"
   triggers:
     - mega sync
@@ -133,9 +133,7 @@ All systems go! ✅
 ## Related Skills
 
 - `skills/study` - Load memories after sync
-- `skills/remember` - Save session to memory
-- `skills/recall` - Search memories
-- `skills/skill-audit` - For skill verification
+- `skills/mega-sync` - System health check
 
 ---
 

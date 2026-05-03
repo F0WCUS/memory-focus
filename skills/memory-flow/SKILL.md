@@ -238,7 +238,7 @@ At END, scan for `#decision` tags. Promote to `MEMORY.md`.
 **Auto mode (default):** Every END runs `scripts/github-backup.sh` automatically.
 **Opt-in mode:** Only if `memory/.github-backup-auto` exists.
 
-Configure in wizard: "auto (Stuart style)" vs "opt-in (MEMORY-FLOW style)"
+Configure in wizard: auto mode vs opt-in mode
 
 ---
 
