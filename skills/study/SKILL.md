@@ -2,7 +2,7 @@
 name: study
 description: Load all memories, with optional tag filtering. Use when you need to catch up - says "study".
 metadata:
-  author: Jeem & Stuart
+  author: F0WCUS
   version: "2.2"
   triggers:
     - study
@@ -14,7 +14,7 @@ metadata:
 
 # Study - Load Memories
 
-One word reads all memory files and gets you up to speed instantly. Also check MEMORY_INDEX.md for quick reference.
+One word reads all memory files and gets you up to speed instantly.
 
 **Optional:** Add a tag to filter memories: `study #knicks`
 
@@ -84,7 +84,7 @@ Read:
 
 ### Step 4: PRESENT SUMMARY
 
-Give Jeem a quick summary:
+Give a quick summary:
 - Key decisions
 - Open tasks
 - What's been happening
@@ -129,7 +129,7 @@ Ready to help! 🦫
 
 | Scenario | What to Do |
 |----------|-------------|
-| No memory files | Start fresh, welcome Jeem |
+| No memory files | Start fresh, welcome user |
 | Files unreadable | Note warning, continue |
 | Git pull fails | Note offline, continue |
 
@@ -137,8 +137,7 @@ Ready to help! 🦫
 
 ## Related Skills
 
-- `skills/remember` - Save new sessions
-- `skills/recall` - Search specific memories
+- `skills/sync` - Save to memory
 - `skills/mega-sync` - Full system check
 
 ---
@@ -194,7 +193,5 @@ After completing, verify:
 
 ## Quick Reference
 
-For instant recall, also check:
-- `MEMORY_INDEX.md` - Quick overview of all key facts
-- `MEMORY_TAGS.md` - Standard tagging system
+For instant recall, also check recent daily logs in `memory/daily/`.
 

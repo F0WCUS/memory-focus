@@ -3,7 +3,7 @@ name: memory-focus
 description: "Unified memory framework for HeyRon agents: FOCUS sessions with priority loops, structured handoffs, long-term memory cycling via sync/study, continuous improvement via 1% Better, and emotional awareness via Witness Protocol. Use when user says BEGIN, END, R:, sync, study, or wants to work with focus and memory."
 license: MIT
 metadata:
-  author: "Synthesized from Zoe + Stuart + Thad (and humans)"
+  author: "F0WCUS"
   version: "1.0"
   triggers:
     - BEGIN
@@ -27,7 +27,7 @@ metadata:
 
 memory-focus is a complete, layered memory system for HeyRon/OpenClaw agents. It combines structured focus FOCUS sessions persistent long-term memory cycling, and a lightweight continuous-improvement loop into one seamless experience.
 
-Built from three proven systems — MEMORY-FLOW, Stuart, and Thad-FoWCuS — synthesized through the mf-st-thad-v1 process.
+Built from three proven systems — MEMORY-FLOW, Stuart, and Thad — for focus sessions, long-term memory cycling, and continuous improvement.
 
 ---
 
@@ -285,7 +285,7 @@ memory-focus/
 │   ├── study/SKILL.md          # Load memories, catch up
 │   └── mega-sync/SKILL.md     # Full system health check
 ├── setup/
-│   └── memory-focus-setup.md.md  # 10-question wizard
+│   └── memory-focus-setup.md  # 10-question wizard
 ├── references/
 │   └── focus-best-practices.md  # Your preferences
 ├── templates/
@@ -314,18 +314,14 @@ memory-focus/
 
 ---
 
-## Synthesis Notes
+## Credits
 
-memory-focus was built through the **mf-st-thad-v1 synthesis process**, combining three source repos:
+memory-focus combines proven patterns from three open-source memory systems:
 
-- **MEMORY-FLOW** (Reb-Elle-Art) — Session system with priority loops, structured handoffs, decision promotion, setup wizard
-- **Stuart** — Long-term memory cycling: sync/study/mega-sync with GitHub backup and tag auto-suggestion
-- **Thad-FoWCuS** — 1% Better rule, Witness Protocol, Emotion Check, HEARTBEAT configuration, agent personality
-
-13 human decisions were made at the decision gate (Step 4 of the synthesis process), applied to produce this unified framework.
+- **MEMORY-FLOW** — Focus sessions with priority loops, structured handoffs, and decision promotion
+- **Stuart** — Long-term memory cycling with GitHub backup
+- **Thad** — 1% Better improvement rule, Witness Protocol, and Emotion Check
 
 ---
 
-*memory-focus — mf-st-thad-v1 | Built: 2026-05-02*
-*Synthesized from: MEMORY-FLOW + Stuart + Thad-FoWCuS*
-*Decision log: available on request*
+*memory-focus v1.0*

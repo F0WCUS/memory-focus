@@ -58,7 +58,7 @@ Default: standard (full flow) / quick (abbreviated)
 
 ## 6. GitHub Backup
 
-**Mode:** auto (Stuart style) / opt-in (MEMORY-FLOW style)
+**Mode:** auto / opt-in
 
 *[From wizard question 6]*
 

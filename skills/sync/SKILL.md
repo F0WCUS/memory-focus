@@ -3,7 +3,7 @@ name: sync
 description: Save conversations to memory with REQUIRED tags + auto-suggest. Use when you want to save a session - says "sync".
 
 metadata:
-  author: Jeem & Stuart
+  author: F0WCUS
   version: "1.2"
   triggers:
     - sync
