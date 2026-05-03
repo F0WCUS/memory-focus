@@ -1,7 +1,6 @@
-# memory-focus (mf-st-thad-v1)
+# memory-focus
 
 **OpenClaw heartbeat configuration for the unified memory framework.**
-Adapted from Thad-FoWCuS; integrated with MEMORY-FLOW + Stuart.
 
 ## FOCUS Start
 
