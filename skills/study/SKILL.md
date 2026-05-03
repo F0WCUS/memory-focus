@@ -1,7 +1,6 @@
 ---
 name: study
 description: Load all memories, with optional tag filtering. Use when you need to catch up - says "study".
-license: Proprietary
 metadata:
   author: Jeem & Stuart
   version: "2.2"
