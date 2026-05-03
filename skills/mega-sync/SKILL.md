@@ -1,10 +1,8 @@
 ---
 name: mega-sync
 description: Complete system health check - GitHub sync, memory verification, OpenClaw status. Use when you need a comprehensive status check - says "mega sync".
-license: Proprietary
 metadata:
   author: Jeem & Stuart
-  credits: "Original concept by Jeem & Stuart"
   version: "1.3"
   triggers:
     - mega sync
