@@ -1,7 +1,7 @@
 ---
 name: sync
 description: Save conversations to memory with REQUIRED tags + auto-suggest. Use when you want to save a session - says "sync".
-license: Proprietary
+
 metadata:
   author: Jeem & Stuart
   version: "1.2"
@@ -72,26 +72,31 @@ After parsing the user's tag, analyze the conversation to find topics and sugges
 **If user says NO:** Keep only the original tag
 **If user provides MORE tags:** Add those too
 
-### Step 3: CREATE MEMORY FILE
+### Step 3: ADD SYNC LOG TO MEMORY FILE
 
-Create file with today's date:
+Check if memory/daily/YYYY-MM-DD.md exists. If not, create
 ```bash
-memory/YYYY-MM-DD.md
+memory/daily/YYYY-MM-DD.md
 ```
 
-### Step 4: ADD SESSION CONTENT
+### Step 4: ADD SYNC LOG
+```markdown
+---
+type: sync-log
+date: YYYY-MM-DD-HH:MM:SS
+---
+```
 
 Add to file:
 - **What** - What happened
 - **Decisions** - Key decisions made (tag as #decision)
 - **Topics** - Topics discussed
-- **Tasks** - Open todos (tag as #task)
 - **Notes** - Additional notes
 - **Tags** - All tags from Step 1 + Step 2
 
 ### Step 4.5: ADD PRIORITY TAG (REQUIRED!)
 
-**⚠️ MANDATORY - Per SOUL.md Memory Rules!**
+**⚠️ MANDATORY**
 
 After analyzing conversation content, you MUST add priority tag:
 
@@ -104,7 +109,7 @@ After analyzing conversation content, you MUST add priority tag:
 - "We decided to add memory rules" → #important #decision
 - "Just chatting about the game" → #routine
 
-### Step 4.6: CHECK CROSS-REFERENCES (NEW!)
+### Step 4.6: CHECK CROSS-REFERENCES
 
 Before saving, check if this topic relates to previous entries:
 - Search recent memory files for related topics
@@ -124,6 +129,12 @@ Push to GitHub:
 ```bash
 git add memory/ YYYY-MM-DD.md && git commit -m "Memory: Session" && git push
 ```
+## VERIFY
+
+After completing, verify:
+1. File changes saved
+2. GitHub push successful
+3. No errors in output
 
 ### Step 7: CONFIRM
 
@@ -131,6 +142,27 @@ Report to user:
 - File saved
 - All tags used
 - GitHub status
+
+## Output Format
+
+```markdown
+## 🔄 Sync Complete
+
+**Saved:** memory/daily/2026-04-30.md
+**Tags:** #session #agent-jam #team
+**GitHub:** ✅ Synced
+```
+---
+
+## Error Handling
+
+| Scenario | What to Do |
+|----------|------------|
+| No tag given | Use `#FOCUS` as default |
+| File exists | Append to existing file |
+| Git conflict | Resolve, then push |
+| Tag without # | Add # prefix |
+| No suggestions | Just use user's tag |
 
 ---
 
@@ -167,59 +199,9 @@ Report to user:
 
 ---
 
-## Output Format
-
-```markdown
-## 🔄 Sync Complete
-
-**Saved:** memory/2026-04-30.md
-**Tags:** #session #agent-jam #team
-**GitHub:** ✅ Synced
-```
-
----
-
-## Error Handling
-
-| Scenario | What to Do |
-|----------|------------|
-| No tag given | Use `#session` as default |
-| File exists | Append to existing file |
-| Git conflict | Resolve, then push |
-| Tag without # | Add # prefix |
-| No suggestions | Just use user's tag |
-
----
-
 ## Related Skills
 
 - `skills/study` - Load memories by tag
 - `skills/mega-sync` - System health check
-- `skills/tagger` - Dedicated tag analysis skill (future)
 
----
 
-## Time Estimate
-
-| Step | Time |
-|------|------|
-| Parse tags | 5s |
-| Analyze + suggest | 10s |
-| Create file | 5s |
-| Add content | 1 min |
-| Git pull/push | 15s |
-| Confirm | 5s |
-| **Total** | **~90s** |
-
----
-
-*Skill version: 1.1 - Last updated: May 1, 2026*
-*Note: v1.1 - Added mandatory auto-suggest step*-e 
----
-
-## VERIFY
-
-After completing, verify:
-1. File changes saved
-2. GitHub push successful
-3. No errors in output
