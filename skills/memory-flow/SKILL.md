@@ -1,11 +1,10 @@
 ---
 name: memory-flow
-description: "Structured focus FOCUSs with priority loops, structured handoffs, and #decision promotion. Use when user initiates a focus FOCUS with BEGIN, ends one with END, or adds a reminder with R:."
+description: "Structured focus FOCUSs with priority loops, structured handoffs, and #decision promotion. Use when user initiates a focus FOCUS with BEGIN, ends one with END, or adds a reminder with R:, R!: or RB:"
 license: MIT
 metadata:
-  author: Reb-Elle-Art (base); Todd (synthesis for mf-st-thad-v1)
+  author: Oh Janet
   version: "1.0"
-  src: "mf-st-thad-v1 synthesis"
   triggers:
     - BEGIN
     - END
@@ -18,55 +17,16 @@ metadata:
     - memory_search
 ---
 
-# MEMORY-FLOW — Unified Focus FOCUSs with Memory Logging
-
-**Part of memory-focus unified memory framework (mf-st-thad-v1)**
-
 ## Triggers
 
 | Trigger | Action |
 |---------|--------|
-| `BEGIN` | Start a standard focus FOCUS |
-| `END` | End FOCUS, write handoff, promote decisions |
-| `R: X` | Add open loop (MED priority) |
-| `R!: X` | Add high priority open loop |
-| `RB: X` | Add backlog item |
+| `BEGIN` | Start a standard focus FOCUS (case sensitive)|
+| `END` | End FOCUS, write handoff, promote decisions (case sensitive)|
+| `R: X` | Add open loop (MED priority) (case sensitive)|
+| `R!: X` | Add high priority open loop (case sensitive)|
+| `RB: X` | Add backlog item (case sensitive)|
 | `1% better` | Manual trigger for improvement prompt |
-
----
-
-## Memory Structure
-
-```
-memory/
-├── daily/                    # FOCUS handoffs (YYYY-MM-DD.md)
-├── loops.md                  # Open loops (warn at 10, no hard limit)
-├── backups/                  # GitHub backup copies
-├── .focus-active           # Marker: FOCUS in progress
-├── .focus-count           # FOCUS counter (for 1% Better)
-├── .timezone               # User's timezone
-└── .github-backup-auto     # (only if auto backup enabled)
-
-MEMORY.md                    # Long-term memory (decisions, context)
-
-references/
-└── focus-best-practices.md  # User preferences (from setup wizard)
-```
-
----
-
-## Why Context Efficiency Matters
-
-At each BEGIN, load only what's needed. Extra files waste tokens and slow startup.
-
-| FOCUS Type | Duration | Files Loaded |
-|-------------|----------|--------------|
-| Short | <1 hr | loops.md + timezone check |
-| Standard | 1-2 hr | loops.md + MEMORY.md + last 3 dailies |
-| Long | 2+ hr | Everything (full load) |
-
-Target: < 5KB per typical FOCUS.
-
 ---
 
 ## BEGIN Protocol (8 Steps)
@@ -115,19 +75,18 @@ Write answer to `memory/.timezone`.
 ### Step 4: Load Open Loops
 
 Read `memory/loops.md`:
-- Sort by priority: HIGH > MED > BACKLOG
 - Flag loops older than 7 days as "stale"
 - Count and report: "You have N open items (N HIGH priority)"
 
-**Soft limit:** If 10+ loops, warn: "You've reached 10 open loops. Consider pruning."
+**Soft limit:** If 10+ loops, warn: "You've reached 10 open loops."
 
 ### Step 5: Load Long-Term Memory (MEMORY.md)
 
-Read `MEMORY.md` for key decisions and context.
+Read `MEMORY.md` for key decisions (#decision) and context.
 
-### Step 6: Load Recent Handoffs (Last 3 Dailies)
+### Step 6: Load Recent Handoffs (Last Daily)
 
-Find 3 most recent daily files. Read in reverse chronological order.
+Find most recent daily file. Read in reverse chronological order.
 Extract: active projects, open questions, files being worked on.
 
 ### Step 7: Load FOCUS Preferences (Best Practices)
@@ -142,7 +101,7 @@ Report to user:
 - Open loop count (by priority)
 - Stale loop count (flag for user)
 - Quick summary of recent handoffs
-- "What are we focusing on today?"
+- "What are we FOCUSing on today?"
 
 ---
 
@@ -151,10 +110,9 @@ Report to user:
 - Track active context: project name, files being worked on
 - Tag decisions with `#decision` as they happen
 - When something won't complete: add to `loops.md`
-- Log progress to today's daily as you go
 - Keep notes lean — write enough to remember, not a transcript
 
-**Optional hooks (from decisions 7+8):**
+**Hooks:**
 
 - **Witness Protocol** (if enabled): If something feels significant, acknowledge:
   > "This seems like a moment — [brief acknowledgment]. Should I note it?"
@@ -164,15 +122,9 @@ Report to user:
 
 ---
 
-## END Protocol (7 Steps)
+## END Protocol (6 Steps)
 
-### Step 1: Verify Incomplete Work
-
-Check `loops.md` for `#in-FOCUS` items:
-- If found: move each to today's handoff as "Incomplete"
-- If none: proceed
-
-### Step 2: Check for Stale Loops
+### Step 1: Check for Stale Loops
 
 Check for loops older than 7 days:
 > "You have N stale loops. Keep, mark complete, or archive?"
@@ -181,10 +133,9 @@ Process user's response.
 
 ### Step 3: Detect Decisions
 
-Scan FOCUS notes for `#decision` tags:
-> "Found N decisions. Promote to MEMORY.md?"
+Scan FOCUS notes for `#decision` tags.
 
-If yes: add each to `MEMORY.md` with date and source file reference.
+If found, add each to `MEMORY.md` with date and source file reference.
 
 ### Step 4: Write Structured Handoff
 
@@ -195,34 +146,18 @@ Write to today's daily:
 
 Context: What we worked on, why
 
-Work Done:
-- Item 1
-- Item 2
+Work Done: Accomplishments, changes made
 
-Decisions:
-- #decision Description
+Decisions: #decision Description
 
-Files Modified:
-- /full/path/file1
-- /full/path/file2
+Files Modified?: if yes, /full/path/file1
 
-Incomplete (moved to loops):
-- Item that didn't finish #in-FOCUS
-
-Next Steps:
-- What needs doing next
+Next Steps: What needs doing next
 
 END — HH:MM:SS
 ```
 
-### Step 5: Link Files to Projects
-
-Parse "Files Modified":
-- For each file, detect if it belongs to `projects/[name]/`
-- If project has `FOCUS-links.md`: append this FOCUS's entry
-- If not in a project: note in `MEMORY.md` under "Infrastructure Changes"
-
-### Step 6: Cleanup
+### Step 5: Cleanup
 
 Delete `memory/.focus-active` marker file.
 
@@ -240,18 +175,36 @@ Reset or continue counter.
 
 ### Step 8: Confirm
 
-Tell the user the handoff file path.
+Tell the user the handoff file path and END time.
+---
+## Memory Structure
 
+```
+memory/
+├── daily/                    # FOCUS handoffs (YYYY-MM-DD.md)
+├── loops.md                  # Open loops (warn at 10, no hard limit)
+├── backups/                  # GitHub backup copies
+├── .focus-active           # Marker: FOCUS in progress
+├── .focus-count           # FOCUS counter (for 1% Better)
+├── .timezone               # User's timezone
+└── .github-backup-auto     # (only if auto backup enabled)
+
+MEMORY.md                    # Long-term memory (decisions, context)
+
+references/
+└── focus-best-practices.md  # User preferences (from setup wizard)
+```
 ---
 
 ## Open Loop Registry
 
 ### loops.md Structure
+*(where '[tags]' are your custom tags*
 
 ```markdown
-- [ ] Reminder text #open-loop #YYYY-MM-DD
-- [ ] High priority item #priority-high #YYYY-MM-DD
-- [ ] Couch mouse-proofing #backlog #open-loop #2026-05-09
+- [ ] Reminder text #open-loop #YYYY-MM-DD [tags]
+- [ ] High priority item #priority-high #YYYY-MM-DD [tags]
+- [ ] Couch mouse-proofing #backlog #open-loop #2026-05-09 [tags]
 ```
 
 ### Priority Levels (Decision 1: 3-Tier Hybrid)
@@ -268,7 +221,7 @@ Tell the user the handoff file path.
 
 ---
 
-## Decision Tagging (Decision 2: #decision)
+## Decision Tagging
 
 Tag decisions with `#decision` inline during FOCUS:
 
@@ -276,38 +229,16 @@ Tag decisions with `#decision` inline during FOCUS:
 - We decided to use the 3-tier hybrid system #decision
 ```
 
-At END, scan for `#decision` tags. Prompt to promote to `MEMORY.md`.
+At END, scan for `#decision` tags. Promote to `MEMORY.md`.
 
 ---
 
-## FOCUS Templates (Decision 11)
-
-| Template | Command | Behavior |
-|----------|---------|----------|
-| Standard | `BEGIN` | Full BEGIN/END flow |
-
-Custom templates (from wizard decision 10) can be added to `references/focus-best-practices.md`.
-
----
-
-## GitHub Backup (Decision 5: Configurable)
+## GitHub Backup
 
 **Auto mode (default):** Every END runs `scripts/github-backup.sh` automatically.
 **Opt-in mode:** Only if `memory/.github-backup-auto` exists.
 
 Configure in wizard: "auto (Stuart style)" vs "opt-in (MEMORY-FLOW style)"
-
----
-
-## Context Injection Summary
-
-Target: < 5KB per typical FOCUS.
-
-| FOCUS Type | Files Loaded |
-|-------------|--------------|
-| Short (<1hr) | loops.md + timezone check |
-| Standard (1-2hr) | loops.md + MEMORY.md + last 3 dailies |
-| Long (2hr+) | Everything (full load) |
 
 ---
 
@@ -322,9 +253,3 @@ Target: < 5KB per typical FOCUS.
 | 1% Better not triggering | Check `memory/.focus-count` exists |
 | No timezone set | Ask user at first BEGIN, write to `memory/.timezone` |
 | Loops at 10+ | Warn but don't enforce — user can override |
-
----
-
-*Part of memory-focus — mf-st-thad-v1*
-*Built from: MEMORY-FLOW + Stuart + Thad-FoWCuS*
-*Decision log: testdocs/synthesis-mf-st-thad-v1/decisions.md*
