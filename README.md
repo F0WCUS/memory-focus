@@ -42,7 +42,7 @@ It's also the first to use `#decision` as a first-class tagging primitive — ma
 
 1. <Your Agent's Name>, please clone this repo into your HeyRon workspace: https://github.com/F0WCUS/memory-focus.git
    
-2. <Your Agent's Name>, please review README.md, SKILL.md, and skills/
+2. <Your Agent's Name>, please review README.md, and skills/
 
 3. **Start a FOCUS** Say `BEGIN` to start your first FOCUS — the setup wizard runs automatically
 
