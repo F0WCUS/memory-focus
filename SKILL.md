@@ -318,9 +318,9 @@ memory-focus/
 
 memory-focus combines proven patterns from three open-source memory systems:
 
-- **MEMORY-FLOW** — Focus sessions with priority loops, structured handoffs, and decision promotion
-- **Stuart** — Long-term memory cycling with GitHub backup
-- **Thad** — 1% Better improvement rule, Witness Protocol, and Emotion Check
+- **Janet/Zoe** — memory-flow: Focus sessions with priority loops, structured handoffs, and decision promotion
+- **Jeem/Stuart** — sync/study: Long-term memory cycling with GitHub backup
+- **Austin/Thad** — 1% Better improvement rule, Witness Protocol, and Emotion Check
 
 ---
 
