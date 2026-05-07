@@ -1,4 +1,4 @@
-# memory-focus — 10-Question Setup Wizard
+# memory-focus — 11-Question Setup Wizard
 
 *Complete once. The agent deletes this file after setup.*
 
@@ -8,7 +8,7 @@
 
 This is your unified memory framework: focus FOCUSs + long-term memory cycling + continuous improvement.
 
-Before your first FOCUS, the agent will ask 10 questions to personalize it. Takes ~5-10 minutes.
+Before your first FOCUS, the agent will ask 11 questions to personalize it. Takes ~5-10 minutes.
 
 ---
 
@@ -24,17 +24,21 @@ The agent will walk through these one at a time:
 
 **4. FOCUS preference** — Default FOCUS type? (standard = full flow; quick = abbreviated)
 
-**5. File placement** — Where to put files you create? Default: projects/[name]/ for project files, memory/daily/ for logs
+**5. Memory location** — Where should FOCUS store session logs?
+- Default: `memory/` (relative to workspace)
+- Or specify absolute path like `/home/user/.openclaw/workspace/memory`
 
-**6. GitHub backup** — Auto (every sync) or opt-in? Default: auto
+**6. File placement** — Where to put files you create? Default: projects/[name]/ for project files, memory/daily/ for logs
 
-**7. 1% Better** — Enable the improvement prompt? (y/n) If yes, how often? Default: every 5 FOCUSs
+**7. GitHub backup** — Auto (every sync) or opt-in? Default: auto
 
-**8. Witness Protocol** — Enable the moment-acknowledgment hook? (y/n)
+**8. 1% Better** — Enable the improvement prompt? (y/n) If yes, how often? Default: every 5 FOCUSs
 
-**9. Emotion Check** — Enable the emotional awareness hook? (y/n)
+**9. Witness Protocol** — Enable the moment-acknowledgment hook? (y/n)
 
-**10. Custom templates** — Any additional FOCUS templates beyond standard? (optional)
+**10. Emotion Check** — Enable the emotional awareness hook? (y/n)
+
+**11. Custom templates** — Any additional FOCUS templates beyond standard? (optional)
 
 ---
 
