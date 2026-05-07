@@ -20,93 +20,56 @@
 
 Default: HIGH / MED / BACKLOG
 
-*[Custom names from wizard question 2]*
-
 ---
 
 ## 3. Frequently Used Tools
 
-*[From wizard question 3]*
-Example:
-```
-here.now — publish HTML briefings
-Supabase — personal tracker database
-git — version control
-```
+*[Tools from wizard question 3]*
 
 ---
 
-## 4. FOCUS Preference
-
-Default: standard (full flow) / quick (abbreviated)
+## 4. FOCUS Type
 
 *[From wizard question 4]*
 
 ---
 
-## 5. File Placement Conventions
+## 5. Memory Location
 
-| Location | Path |
-|----------|------|
-| Project files | projects/[name]/ |
-| FOCUS logs | memory/daily/ |
-| Daily notes | memory/daily/notes/ |
-
-*[Custom conventions from wizard question 5]*
+*[From wizard question 5]*
 
 ---
 
-## 6. GitHub Backup
-
-**Mode:** auto / opt-in
+## 6. File Placement
 
 *[From wizard question 6]*
 
-**Repo:** *[repo URL if applicable]*
-
 ---
 
-## 7. 1% Better
-
-**Enabled:** yes / no
-
-**Interval:** Every N FOCUSs (default: 5)
+## 7. GitHub Backup
 
 *[From wizard question 7]*
 
 ---
 
-## 8. Witness Protocol
-
-**Enabled:** yes / no
+## 8. 1% Better
 
 *[From wizard question 8]*
 
-If enabled, the agent will optionally acknowledge meaningful moments during FOCUS.
-
 ---
 
-## 9. Emotion Check
-
-**Enabled:** yes / no
+## 9. Witness Protocol
 
 *[From wizard question 9]*
 
-If enabled, the agent will optionally check in on emotional state if tone/topic shifts noticeably.
+---
+
+## 10. Emotion Check
+
+*[From wizard question 10]*
 
 ---
 
-## 10. Custom FOCUS Templates
+## 11. Custom Templates
 
-*[From wizard question 10 — optional]*
-
-| Template | Duration | Behavior |
-|----------|---------|----------|
-| quick | 15 min | Skip "what are we working on", light handoff |
-| standard | 1 hr | Full BEGIN/END flow |
-
-*[Any user-defined templates]*
-
----
-
-**To reconfigure:** Answer the setup questions again (delete this file and say BEGIN) or edit directly.
+*[From wizard question 11]*
