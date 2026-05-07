@@ -1,34 +1,75 @@
-# Focus Best Practices
+# Focus Best Practices — User Preferences
 
-*Personalized preferences from setup wizard*
+*Filled in by setup wizard on first BEGIN. Edit this file to reconfigure.*
 
-## Custom Tags
-- #skillbuilding
+---
 
-## Priority Levels
-- HIGH
-- MED
-- BACKLOG
+## 1. Custom Tags
 
-## Frequently Used Tools
-- Supabase
-- GitHub
+| Tag | Meaning |
+|-----|---------|
+| #open-loop | Something to revisit |
+| #in-FOCUS | Started but won't finish this FOCUS |
+| #decision | A decision made (promote to MEMORY.md) |
 
-## FOCUS Type
-- standard
+*[Additional tags from wizard question 1]*
 
-## File Placement
-- projects/[name]/ for project files
-- memory/daily/ for logs
+---
 
-## GitHub Backup
-- opt-in (manual sync required)
+## 2. Priority Levels
 
-## 1% Better
-- disabled
+Default: HIGH / MED / BACKLOG
 
-## Witness Protocol
-- disabled
+---
 
-## Emotion Check
-- disabled
+## 3. Frequently Used Tools
+
+*[Tools from wizard question 3]*
+
+---
+
+## 4. FOCUS Type
+
+*[From wizard question 4]*
+
+---
+
+## 5. Memory Location
+
+*[From wizard question 5]*
+
+---
+
+## 6. File Placement
+
+*[From wizard question 6]*
+
+---
+
+## 7. GitHub Backup
+
+*[From wizard question 7]*
+
+---
+
+## 8. 1% Better
+
+*[From wizard question 8]*
+
+---
+
+## 9. Witness Protocol
+
+*[From wizard question 9]*
+
+---
+
+## 10. Emotion Check
+
+*[From wizard question 10]*
+
+---
+
+## 11. Custom Templates
+
+*[From wizard question 11]*
