@@ -19,6 +19,8 @@ metadata:
   requires:
     - filesystem
     - memory_search
+  config:
+    memoryPath: ${OPENCLAW_MEMORY_PATH:-memory}
 ---
 
 # memory-focus — Unified Memory Framework for HeyRon Agents
@@ -89,6 +91,19 @@ mega sync          # Full system health check
 | `study` | study | Load all memories, catch up |
 | `mega sync` | mega-sync | Full system health check |
 | `1% better` | memory-flow | Manual trigger for improvement prompt |
+
+---
+
+## Configuration
+
+| Option | Env Variable | Default | Description |
+|--------|--------------|---------|-------------|
+| `memoryPath` | `OPENCLAW_MEMORY_PATH` | `memory` | Path to memory directory. Set to integrate with existing workspace memory. |
+
+**Example:** To use workspace memory:
+```bash
+export OPENCLAW_MEMORY_PATH=/home/user/.openclaw/workspace/memory
+```
 
 ---
 
